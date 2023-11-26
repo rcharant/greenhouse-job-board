@@ -63,11 +63,13 @@ function App() {
         <div className="jobs-container grid">
           {
             jobs.map((job) => 
+            <a href={'/listing?id=' + job.id}>
               <article>
                 <h2>{job.title}</h2>
                 <h4>{job.departments[0].name}</h4>
                 <h6>{job.location.name}</h6>
               </article>
+            </a>
             )
           }
         </div>

@@ -5,7 +5,7 @@ import '@picocss/pico'
 import './App.css'
 
 function JobListing() {
-  const [jobListing, setJobListing] = useState(0)
+  const [jobListing, setJobListing] = useState(null)
 
   useEffect(() => {
     const queryParams = new URLSearchParams(document.location.search);
@@ -26,13 +26,12 @@ function JobListing() {
         
         <div className="jobs-container">
           {
+            jobListing && (
               <article>
                 <h2>{jobListing.title}</h2>
-                {/* <h4>{jobListing.departments[0].name}</h4> */}
-                {/* <h6>{ jobListing.location.name }</h6> */}
-                
                 <div dangerouslySetInnerHTML={{__html: htmlDecode(jobListing.content)}}></div>
               </article>
+            )
           }
         </div>
       </div>
